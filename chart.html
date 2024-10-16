@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Chart.js Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div style="width: 50%; margin: auto">
+      <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+
+    <script>
+      // Get the context of the canvas
+      const ctx = document.getElementById("myChart").getContext("2d");
+
+      // Dummy data for the chart
+      const data = {
+        labels: [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+        ],
+        datasets: [
+          {
+            label: "Dummy Data",
+            data: [10, 20, 15, 30, 25, 35, 40],
+            backgroundColor: "rgba(75, 192, 192, 0.2)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 1,
+          },
+        ],
+      };
+
+      // Configurations for the chart
+      const config = {
+        type: "bar", // You can change this to 'line', 'pie', etc.
+        data: data,
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      };
+
+      // Create the chart
+      new Chart(ctx, config);
+    </script>
+  </body>
+</html>
